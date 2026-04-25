@@ -14,9 +14,9 @@ async def test_full_adder(dut):
     dut.ui_in.value = 0
     dut.uio_in.value = 0
     dut.rst_n.value = 0
-    await Timer(50, units="ns")
+    await Timer(50, unit="ns")
     dut.rst_n.value = 1
-    await Timer(50, units="ns")
+    await Timer(50, unit="ns")
 
     # Test cases: (a, b, c_in, expected_sum, expected_carry)
     test_cases = [
@@ -30,7 +30,7 @@ async def test_full_adder(dut):
     for a, b, c, e_sum, e_carry in test_cases:
         # Apply inputs
         dut.ui_in.value = (c << 2) | (b << 1) | a
-        await Timer(20, units="ns")
+        await Timer(20, unit="ns")
 
         try:
             # Read outputs
